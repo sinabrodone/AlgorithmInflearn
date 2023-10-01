@@ -3,21 +3,23 @@ using namespace std;
  
 int main() 
 {
- 	int n;
- 	cin>> n;
- 	
- 	int count = 0;
- 	while(n>0)
- 	{
- 		count++;
- 		n-=4;	
-	}
+	int arr[42] = {0,};
 	
-	for(int i = 0; i<count; i++)
+	int num = 0;
+	for(int i = 0; i<10;i++)
 	{
-		cout<< "long ";
+		cin>>num;
+		arr[num % 42]++;
 	}
 	
-	cout<<"int";
+	int count = 0;
+	for(int a : arr)
+	{
+		if(a > 0)
+			count++;
+	}
+	
+	cout<<count;
+	
 	return 0;
 }

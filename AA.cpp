@@ -1,25 +1,37 @@
 #include <iostream>
+#include <climits>
 using namespace std;
- 
+
 int main() 
 {
-	int arr[42] = {0,};
+	int n, m;
+	cin>>n>>m;
 	
-	int num = 0;
-	for(int i = 0; i<10;i++)
+	int* baskets = new int[n];
+
+	//ÃÊ±âÈ­ [1] [2] [3] [4] [5]
+	for(int i = 0; i<n;i++)
 	{
-		cin>>num;
-		arr[num % 42]++;
+		baskets[i] = i+1;
 	}
 	
-	int count = 0;
-	for(int a : arr)
+	int a,b;
+	for(int i = 0 ;i < m; i++)
 	{
-		if(a > 0)
-			count++;
+		cin>>a>>b;
+		a -= 1; b -=1;
+		for(int j = a; j < b / 2 ; j++)
+		{
+			int temp = baskets[j];
+			baskets[j] = baskets[b - j - 1];
+			baskets[b-j - 1] = temp;
+		}
 	}
 	
-	cout<<count;
+	for(int i = 0; i<n; i++)
+	{
+		cout<<baskets[i]<<' ';
+	}
 	
-	return 0;
+	delete[] baskets;
 }

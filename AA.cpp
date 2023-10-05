@@ -12,6 +12,8 @@ int main()
 	{
 		cout << s << '\n';
 	}
+	
+	//while(getline(cin,s)) ÀÌ°Å¹¹Áö... 
 
 	return 0;
 }

@@ -1,19 +1,18 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 int main() 
 {
 
-	string s;
-
-	while(getline(cin, s)) 
-	{
-		cout << s << '\n';
-	}
+	int count[6] = {1,1,2,2,2,8};	
+	//Å· 1°³, Äý1°³, ·è 2°³, ºñ¼ó2°³, ³ªÀÌÆ®2°³, Æù 8°³
 	
-	//while(getline(cin,s)) ÀÌ°Å¹¹Áö... 
-
+	int temp = 0;
+	for(int i =0; i<6 ; i++)
+	{
+		cin>>temp;
+		cout<< count[i] - temp<< ' ';
+	} 
+	
 	return 0;
 }

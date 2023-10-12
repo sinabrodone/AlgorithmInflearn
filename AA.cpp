@@ -1,18 +1,21 @@
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
-
-int main() 
-{
-
-	int count[6] = {1,1,2,2,2,8};	
-	//킹 1개, 퀸1개, 룩 2개, 비숍2개, 나이트2개, 폰 8개
-	
-	int temp = 0;
-	for(int i =0; i<6 ; i++)
-	{
-		cin>>temp;
-		cout<< count[i] - temp<< ' ';
-	} 
-	
-	return 0;
+int main() {
+    vector<string> croatian = {"c=","c-","dz=","d-","lj","nj","s=","z="};
+    int idx = 0;
+    string str;
+    cin >> str;
+    for(int i = 0; i < croatian.size(); i++)
+    {
+        while(1){
+            idx = str.find(croatian[i]);
+            // 찾는 문자열이 없는경우 string::npos 반환 
+            if(idx == string::npos)
+                break;
+            str.replace(idx,croatian[i].length(),"#");
+        }
+    }
+    cout << str.length();
 }
